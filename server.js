@@ -1,8 +1,10 @@
 var exp = require("express")
 var app = exp();
 var sql = require("sqlite3")
+var favicon = require("serve-favicon")
 
 var db = new sql.Database('hsm.db');
+
 var create_table = "create table if not exists ITEMS ("+
     "ID integer primary key autoincrement,"+
     "NAME text unique,"+
@@ -10,7 +12,8 @@ var create_table = "create table if not exists ITEMS ("+
     "MIN_STOCK float,"+
     "MAX_STOCK float,"+
     "UNIT text);";
-db.run(create_table,[],function(error){ if (error) console.log(error);});
+
+    db.run(create_table,[],function(error){ if (error) console.log(error);});
 
 function newItem(item, res) {
     var new_item = "insert into ITEMS (NAME, STOCK, MIN_STOCK, MAX_STOCK,UNIT) " +
@@ -111,6 +114,9 @@ function updateStock(stock,id,res) {
     });
 }
 
+app.use(favicon("static/favicon.ico"));
+
+app.get("/static",exp.static('static'));
 
 app.get("/n", function(req,res){
     var item = {
@@ -148,6 +154,7 @@ app.get("/stock",function(req,res){
     console.log("Changing stock of " + req.query.id + " to " + req.query.stock);
     updateStock(req.query.stock,req.query.id,res);
 });
+
 
 console.log("Listening on port 8080..")
 app.listen(8080);
