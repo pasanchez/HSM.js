@@ -1,0 +1,16 @@
+{
+  "name": "hsm.js",
+  "version": "1.0.0",
+  "description": "House Stock Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Sánchez",
+  "license": "MIT",
+  "dependencies": {
+    "expres": "0.0.5",
+    "express": "^4.15.3",
+    "sqlite3": "^3.1.8"
+  }
+}
