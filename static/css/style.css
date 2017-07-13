@@ -6,7 +6,7 @@
 
 
 #search {
-    background-image: url('resources/search.ico'); 
+    background-image: url('../resources/search.ico'); 
     background-position: 1px 1px;
     background-size: 40px 40px;
     background-repeat: no-repeat;

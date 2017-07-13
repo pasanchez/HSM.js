@@ -3,7 +3,7 @@ var root = "http://172.19.3.156:8080/";
 window.onload= function() {
     var url = root + "s?name=";
     var success = function(data) {
-        console.log(data)
+        //console.log(data)
         var items = data.data.items;
         var table =  $("<table>").addClass("items_table");
         var header = $("<tr>").addClass("header");

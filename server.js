@@ -13,7 +13,15 @@ var create_table = "create table if not exists ITEMS ("+
     "MAX_STOCK float,"+
     "UNIT text);";
 
-    db.run(create_table,[],function(error){ if (error) console.log(error);});
+db.run(create_table,[],function(error){ if (error) console.log(error);});
+
+function compareStrings(a, b){
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return (a<b)? -1: (a>b)?1:0;
+}
+
 
 function newItem(item, res) {
     var new_item = "insert into ITEMS (NAME, STOCK, MIN_STOCK, MAX_STOCK,UNIT) " +
@@ -42,6 +50,9 @@ function searchItem(name, res) {
             });
         }
     }, function(err,size) {
+        results.data.items.sort(function(a,b){
+            return compareStrings(a.name,b.name);
+        });
         results["code"] =0;
         results["msg"] = null;
         results.data["size"] = size;
@@ -88,6 +99,9 @@ function getShoppingList(res){
             data_.push({name: row.NAME, qty: row.MAX_STOCK-row.STOCK})
         }
     },function(err,size_){
+        data_.sort(function(a,b){
+           return compareStrings(a.name,b.name); 
+        });
         res.send({code:0, msg:null, data: {size: size_, items: data_ }});
     });
 }
@@ -115,7 +129,7 @@ function updateStock(stock,id,res) {
 }
 
 //app.use(exp.static());
-app.use(favicon("static/favicon.ico"));
+app.use(favicon("static/resources/favicon.ico"));
 
 app.use("/",exp.static(path.join(__dirname, 'static')));
 
