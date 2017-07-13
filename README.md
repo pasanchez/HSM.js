@@ -16,6 +16,6 @@ Small web-based app to manage house stock, recipes and shopping lists.
 * d:
   * Delete item by ID in DB
   * params: ID 
-* u:
+* stock:
   * Change item stock by ID in DB
   * params: ID stock
