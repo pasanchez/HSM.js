@@ -2,7 +2,7 @@ var exp = require("express")
 var app = exp();
 var sql = require("sqlite3")
 var favicon = require("serve-favicon")
-
+var path = require("path");
 var db = new sql.Database('hsm.db');
 
 var create_table = "create table if not exists ITEMS ("+
@@ -114,9 +114,10 @@ function updateStock(stock,id,res) {
     });
 }
 
+//app.use(exp.static());
 app.use(favicon("static/favicon.ico"));
 
-app.get("/static",exp.static('static'));
+app.use("/",exp.static(path.join(__dirname, 'static')));
 
 app.get("/n", function(req,res){
     var item = {
