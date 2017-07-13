@@ -96,7 +96,7 @@ function getShoppingList(res){
         if (err) {
            res.send({code: -1,msg:err.code, data:err});
         }else{
-            data_.push({name: row.NAME, qty: row.MAX_STOCK-row.STOCK})
+            data_.push({name: row.NAME, qty: row.MAX_STOCK-row.STOCK, id:row.ID, stock:row.STOCK})
         }
     },function(err,size_){
         data_.sort(function(a,b){

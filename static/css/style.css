@@ -1,9 +1,86 @@
+.slButton{
+    margin-top: 20px;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 20px;
+    background-color: #45a049;
+}
+
+.newForm input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.newForm label{
+    display:block;
+    text-align: left;
+    font-size: 20px;
+}
+.newForm{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 80%;
+}
+#submit{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+}
+
+#unit{
+    margin-bottom: 20px;
+}
+.newForm input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#submit{
+    margin:auto;
+}
 .sidebar {
     background-color: #e6f9a4;
     float : left;
-    height: 100%;
 }
 
+.sidebarButton {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  width:100%
+}
+
+.sidebarButton:hover {
+  background: #39574f;
+  text-decoration: none;
+}
 
 #search {
     background-image: url('../resources/search.ico'); 
@@ -52,4 +129,8 @@ table, th, td {
     
     border: 0.5px solid blue;
 
+}
+
+.list_table {
+    width: 60%;
 }
