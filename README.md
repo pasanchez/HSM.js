@@ -23,7 +23,7 @@ User and Password must be changed in the file .config.json that will be created.
   * params: ID stock
 * nr:
   * New Recipe
-  * params: name instructions
+  * params: name ins
 * ni:
   * New Ingredient in Recipe. Must be in items db.
   * params: rid (recipe ID) amount iid (item id)
