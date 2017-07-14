@@ -11,7 +11,7 @@
     background-color: #45a049;
 }
 
-.newForm input{
+.newForm input, textarea{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -43,7 +43,7 @@
     font-size: 20px;
 }
 
-#unit{
+#instructions{
     margin-bottom: 20px;
 }
 .newForm input[type=submit]:hover {
@@ -89,6 +89,19 @@
     background-repeat: no-repeat;
     text-indent: 10px;
     width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#search_recipe {
+    background-image: url('../resources/search.ico'); 
+    background-position: 1px 1px;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    text-indent: 10px;
+    width: 83%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;

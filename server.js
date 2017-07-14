@@ -122,9 +122,6 @@ function getIngredientsOfRecipe(ID,res){
             });
         }
     }, function(err,size) {
-        array.sort(function(a,b){
-            return compareStrings(a.ingredient.name,b.ingredient.name);
-        });
         if (err){
             res.send({code: -1, msg: err.code, data: err})
         }else{
