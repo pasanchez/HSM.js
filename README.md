@@ -3,6 +3,8 @@ Home Stock Manager JavaScript version
 
 Small web-based app to manage house stock, recipes and shopping lists.
 
+User and Password must be changed in the file .config.json that will be created.
+
 ## REST API:
 
 * n:
@@ -19,3 +21,20 @@ Small web-based app to manage house stock, recipes and shopping lists.
 * stock:
   * Change item stock by ID in DB
   * params: ID stock
+* nr:
+  * New Recipe
+  * params: name ins
+* ni:
+  * New Ingredient in Recipe. Must be in items db.
+  * params: rid (recipe ID) amount iid (item id)
+* sr:
+  * Search recipe by name
+  * params: name
+* dr:
+  * Delete recipe by ID
+  * params: ID
+* ior:
+  * List of ingredients of a recipe.
+  * params: ID
+* recipes:
+  * List of recipes NOT doables with current stock.
