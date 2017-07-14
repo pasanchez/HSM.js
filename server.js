@@ -3,7 +3,19 @@ var app = exp();
 var sql = require("sqlite3")
 var favicon = require("serve-favicon")
 var path = require("path");
+var basicAuth = require('express-basic-auth');
+var fs = require("fs");
 var db = new sql.Database('hsm.db');
+var configFile = ".config.json";
+
+var config;
+if (fs.existsSync(configFile)) {
+    config = JSON.parse(fs.readFileSync(configFile,'utf8'));
+}else{
+    config = {user: "user", password: "123456" };
+    fs.writeFile(configFile,JSON.stringify(config),'utf8');
+}
+
 
 var create_table = "create table if not exists ITEMS ("+
     "ID integer primary key autoincrement,"+
@@ -128,7 +140,12 @@ function updateStock(stock,id,res) {
     });
 }
 
-//app.use(exp.static());
+var users_ = {};
+users_[config.user] = config.password;
+app.use(basicAuth({
+    users: users_,
+    challenge: true
+}));
 app.use(favicon("static/resources/favicon.ico"));
 
 app.use("/",exp.static(path.join(__dirname, 'static')));
