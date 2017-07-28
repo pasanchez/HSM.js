@@ -2,7 +2,7 @@
     <title>HSM</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/newItem.js" ></script>
+    <script src="js/recipeList.js" ></script>
 </head>
 <body>
     <div class="sidebar" style="width:14.5%">
@@ -13,18 +13,11 @@
         <input type="button"  class="sidebarButton" onclick="location.href='/recipeList.html';" value="Recipe List" /><br>
     </div>
     <div class"body" style="margin-left:15.6%">
-    <form class="newForm">
-        <label for="name">Name </label>
-        <input type="text" id="name" tabindex="1" autofocus/><br>
-        <label for="stock">Stock </label>
-        <input type="number" id="stock" tabindex="2"/><br>
-        <label for="min_stock">Min Stock </label>
-        <input type="number" id="min_stock" tabindex="3"/><br>
-        <label for="max_stock">Max Stock </label>
-        <input type="number" id="max_stock" tabindex="4"/><br>
-        <label for="unit">Unit </label>
-        <input type="text" id="unit" tabindex="5"/><br>
-        <input type="button"  id="submit" onclick="saveItem()" value="Save"  tabindex="6"/><br>
-    </form>
+        <input type="text" id="search" onkeyup="filterTable()" placeholder="Search...">
+        <label class="switch">
+          <input type="checkbox" class="onlyDoable">
+          <span class="slider"></span>
+        </label>
+        <div id="table" style="overflow-x:auto;"></div>
     </div>
 </body>

@@ -306,9 +306,6 @@ function getNotDoableRecipes(res){
             if(data_.indexOf(row.RECIPE_ID) == -1) data_.push(row.RECIPE_ID);
         }
     },function(err,size_){
-        data_.sort(function(a,b){
-           return compareStrings(a.name,b.name); 
-        });
         res.send({code:0, msg:null, data: {size: size_, items: data_ }});
     });
 }
