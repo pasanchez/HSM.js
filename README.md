@@ -38,3 +38,6 @@ User and Password must be changed in the file .config.json that will be created.
   * params: ID
 * recipes:
   * List of recipes NOT doables with current stock.
+* gr
+  * Get recipe by ID
+  * params: ID
