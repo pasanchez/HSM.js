@@ -41,3 +41,6 @@ User and Password must be changed in the file .config.json that will be created.
 * gr
   * Get recipe by ID
   * params: ID
+* gi
+  * Get Item by ID
+  * params: ID
