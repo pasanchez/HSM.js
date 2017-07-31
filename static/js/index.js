@@ -13,6 +13,7 @@ window.onload= function() {
         header.append($("<th>").text("Min_Stock"));
         header.append($("<th>").text("Max_Stock"));
         header.append($("<th>").text("Unit"));
+        header.append($("<th>").text("Delete"));
         table.append(header);
         items.forEach(function(it) {
             var row = $("<tr>");
@@ -27,6 +28,19 @@ window.onload= function() {
             row.append(max_stock);
             var unit = $("<td>").text(it.unit);
             row.append(unit);
+            var del = $("<td>");
+            var but = $("<button>");
+            but.click(function(e){
+                if (!confirm("Delete Item?")) return;
+                e.stopPropagation();
+                $.ajax({
+                    url: "d?id="+it.id,
+                    success: function(data){document.location.reload();},
+                    dataType: "json"
+                });
+            });
+            del.append(but);
+            row.append(del);
             table.append(row);
         });
         $("#table").append(table)

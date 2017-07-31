@@ -387,5 +387,15 @@ app.get("/recipes",function(req,res){
     getNotDoableRecipes(res);
 });
 
+app.get("/gr",function(req,res){
+    console.log("Getting recipe by ID");
+    getRecipe(req.query.id,res);
+});
+
+app.get("/gi",function(req,res){
+    console.log("Getting Item by ID");
+    getItem(req.query.id,res);
+});
+
 console.log("Listening on port 8080..")
 app.listen(8080);

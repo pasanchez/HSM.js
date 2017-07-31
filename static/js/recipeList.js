@@ -7,16 +7,33 @@ window.onload= function() {
         var table =  $("<table>").addClass("items_table");
         var header = $("<tr>").addClass("header");
         header.append($("<th>").text("Name"));
+        header.append($("<th>").text("Delete"));
         table.append(header);
         items.forEach(function(it) {
             var row = $("<tr>");
             row.attr("ID",it.id);
             var name = $("<td>").text(it.name);
             row.append(name);
+            var del = $("<td>");
+            var but = $("<button>");
+            but.click(function(e){
+                if (!confirm("Delete Recipe?")) return;
+                e.stopPropagation();
+                $.ajax({
+                    url: "dr?id="+it.id,
+                    success: function(data){document.location.reload();},
+                    dataType: "json"
+                });
+            });
+            del.append(but);
+            row.append(del);
             table.append(row);
         });
         $("#table").append(table);
-
+        $("#table tr").click(function(){
+            var ID = $(this).attr("ID");
+            document.location = "/recipeView.html?id="+ID;
+        })
         $.ajax({
             url: "recipes",
             data: null,
@@ -73,5 +90,4 @@ function filterTable(){
             $(this).hide();
         }
     })
-
 }
