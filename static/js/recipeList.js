@@ -1,6 +1,5 @@
-var root = "";
 window.onload= function() {
-    var url = root + "sr?name=";
+    var url ="../sr?name=";
     var success = function(data) {
 //        //console.log(data);
         var items = data.data.items;
@@ -32,10 +31,10 @@ window.onload= function() {
         $("#table").append(table);
         $("#table tr").click(function(){
             var ID = $(this).attr("ID");
-            document.location = "/recipeView.html?id="+ID;
+            document.location = "recipeView.html?id="+ID;
         })
         $.ajax({
-            url: "recipes",
+            url: "../recipes",
             data: null,
             success: function(data){
                 var items = data.data.items;

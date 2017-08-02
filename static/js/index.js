@@ -2,7 +2,7 @@
 var root = "";
 //var root = "http://172.19.3.156:8080/";
 window.onload= function() {
-    var url = root + "s?name=";
+    var url = root + "/s?name=";
     var success = function(data) {
         //console.log(data)
         var items = data.data.items;
@@ -34,7 +34,7 @@ window.onload= function() {
                 if (!confirm("Delete Item?")) return;
                 e.stopPropagation();
                 $.ajax({
-                    url: "d?id="+it.id,
+                    url: "../d?id="+it.id,
                     success: function(data){document.location.reload();},
                     dataType: "json"
                 });

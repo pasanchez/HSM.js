@@ -1,6 +1,6 @@
 var root = "";
 window.onload= function() {
-    var url = root + "s?name=";
+    var url = "../s?name=";
     var success = function(data) {
         var items = data.data.items;
         var table =  $("<table>").addClass("items_table");
@@ -92,7 +92,7 @@ function saveRecipe() {
     var name = $("#name").val();
     var inst = $("#instructions").val();
     inst = inst.replace(/\n/g,"$n");
-    var url = "/nr?name="+name+"&ins="+inst;
+    var url = "../nr?name="+name+"&ins="+inst;
     $.ajax({
         url: url,
         data: null,

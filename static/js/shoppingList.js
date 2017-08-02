@@ -1,8 +1,7 @@
 //var root = "http://localhost:8080/";
-var root = "";
 //var root = "http://172.19.3.156:8080/";
 window.onload= function() {
-    var url = root + "list";
+    var url = "../list";
     var success = function(data) {
         var items = data.data.items;
         var table =  $("<table>").addClass("list_table");

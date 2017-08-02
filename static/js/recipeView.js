@@ -1,14 +1,13 @@
-//var root = "http://localhost:8080/";
-var root = "";
+
 //var root = "http://172.19.3.156:8080/";
 window.onload= function() {
-    var url = root + "gr?id="+getUrlParam("id");
+    var url = "../gr?id="+getUrlParam("id");
     var success = function(data) {
         //console.log(data)
         $("#Title").html("<h1><center>"+ data.data.name+"</center></h1>");
         $("#instructions").html("<br><br><br><br><br><br><center>"+ data.data.instructions.replace(/\$n/g,"<br>")+"</center>");
         $.ajax({
-            url: "ior?id="+getUrlParam("id"),
+            url: "../ior?id="+getUrlParam("id"),
             data: null,
             success: function(data){
                 //console.log(data)
@@ -31,7 +30,7 @@ window.onload= function() {
                     row.append(unit);
                     table.append(row);
                     $.ajax({
-                        url: "gi?id="+it.ingredient,
+                        url: "../gi?id="+it.ingredient,
                         data: null,
                         success: function(data){
                             setName(data,name,unit)
