@@ -54,7 +54,7 @@ window.onload= function() {
         });
     }
     $.ajax({
-        url: url,
+        url: "../s?name=",
         data: null,
         success: function(data){
             stocks = data;
