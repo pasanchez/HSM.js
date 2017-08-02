@@ -19,7 +19,7 @@ window.onload= function() {
                 if (!confirm("Delete Recipe?")) return;
                 e.stopPropagation();
                 $.ajax({
-                    url: "dr?id="+it.id,
+                    url: "../dr?id="+it.id,
                     success: function(data){document.location.reload();},
                     dataType: "json"
                 });
