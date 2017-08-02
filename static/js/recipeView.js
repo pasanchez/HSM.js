@@ -1,6 +1,7 @@
 
 //var root = "http://172.19.3.156:8080/";
 window.onload= function() {
+    var stocks;
     var url = "../gr?id="+getUrlParam("id");
     var success = function(data) {
         //console.log(data)
@@ -22,6 +23,7 @@ window.onload= function() {
                 items.forEach(function(it) {
                     var row = $("<tr>");
                     row.attr("ID",it.ingredient);
+                    console.log(stocks);
                     var name = $("<td>").text(it.ingredient);
                     row.append(name);
                     var qty = $("<td>").text(it.amount);
@@ -43,10 +45,21 @@ window.onload= function() {
             dataType:"json"
         });
     }
+    var askForData = function(){
+        $.ajax({
+            url: url,
+            data: null,
+            success: success,
+            dataType: "json"
+        });
+    }
     $.ajax({
         url: url,
         data: null,
-        success: success,
+        success: function(data){
+            stocks = data;
+            askForData();
+        },
         dataType: "json"
     });
 }
