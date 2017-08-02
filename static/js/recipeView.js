@@ -26,9 +26,9 @@ window.onload= function() {
                     stocks.data.items.some(function(st){
                         if (st.id == it.ingredient){
                            if (st.stock >= it.amount){
-                                $(this).css("background-color","#95e56e")
+                                row.css("background-color","#95e56e")
                            } else {
-                                $(this).css("background-color","#ea8383");
+                                row.css("background-color","#ea8383");
                            }
                             return true;
                         }

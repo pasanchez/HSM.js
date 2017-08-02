@@ -318,7 +318,7 @@ app.use(basicAuth({
 }));
 app.use(favicon("static/resources/favicon.ico"));
 
-app.use("/",exp.static(path.join(__dirname, 'static')));
+app.use("/hsm",exp.static(path.join(__dirname, 'static')));
 
 app.get("/n", function(req,res){
     var item = {
