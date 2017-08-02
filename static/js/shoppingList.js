@@ -19,7 +19,12 @@ window.onload= function() {
             row.attr("stock",it.stock);
             var name = $("<td>").text(it.name);
             row.append(name);
-            var qty = $("<td>").text(it.qty);
+            var qty = $("<td>");
+            var input = $("<input>");
+            input.attr("type","number");
+            input.text(it.qty);
+            input.click(function(e){e.stopPropagation();});
+            qty.append(input);
             row.append(qty);
             row.css("background-color","#ea8383");
             row.attr("Pressed","false");
@@ -49,7 +54,7 @@ var counter = 0;
 function sendPurchased(){
    $(".list_table tr").each(function(){
         if ($(this).attr("Pressed")=="true"){
-            var pur = $(this).children("td")[1].innerText;
+            var pur = $(this).find('td:eq(1)').html();
             var url= "/stock?id=" +$(this).attr("id") + "&stock=" + (parseFloat($(this).attr("stock")) + parseFloat(pur));
             console.log(url);
             counter++;
