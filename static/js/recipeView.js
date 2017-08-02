@@ -23,7 +23,17 @@ window.onload= function() {
                 items.forEach(function(it) {
                     var row = $("<tr>");
                     row.attr("ID",it.ingredient);
-                    console.log(stocks);
+                    stocks.data.items.some(function(st){
+                        if (st.id == it.ingredient){
+                           if (st.stock >= it.amount){
+                                $(this).css("background-color","#95e56e")
+                           } else {
+                                $(this).css("background-color","#ea8383");
+                           }
+                            return true;
+                        }
+                        return false;
+                    });
                     var name = $("<td>").text(it.ingredient);
                     row.append(name);
                     var qty = $("<td>").text(it.amount);
