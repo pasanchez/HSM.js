@@ -1,6 +1,8 @@
 
 //var root = "http://172.19.3.156:8080/";
 window.onload= function() {
+    var doable = true;
+    var new_stocks=[];
     var stocks;
     var url = "../gr?id="+getUrlParam("id");
     var success = function(data) {
@@ -25,9 +27,11 @@ window.onload= function() {
                     row.attr("ID",it.ingredient);
                     stocks.data.items.some(function(st){
                         if (st.id == it.ingredient){
+                            new_stocks.push({id: st.id, stock: st.stock - it.amount})
                            if (st.stock >= it.amount){
                                 row.css("background-color","#95e56e")
                            } else {
+                                doable = false;
                                 row.css("background-color","#ea8383");
                            }
                             return true;
@@ -71,6 +75,21 @@ window.onload= function() {
             askForData();
         },
         dataType: "json"
+    });
+    $("#doRecipeButton").click(function(){
+        if (doable){
+            $.when(
+                new_stocks.forEach(function(st){
+                    $.ajax({
+                        url: "../stock?id="+st.id+"&stock="+st.stock,
+                        success:null,
+                        data:"json"
+                    });
+               })
+            ).done(function(){
+                document.location.reload();
+            });
+        }
     });
 }
 
